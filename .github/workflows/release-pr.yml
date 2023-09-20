@@ -12,6 +12,10 @@ on:
       template:
         required: true
         type: string
+      env_name:
+        required: true
+        type: string
+
 
 jobs:
   git-pr-release:
@@ -31,3 +35,4 @@ jobs:
           GIT_PR_RELEASE_BRANCH_STAGING: ${{ inputs.from }}
           GIT_PR_RELEASE_TEMPLATE: ${{ inputs.template }}
           TZ: Asia/Tokyo
+          ENV_NAME: ${{ inputs.env_name }}

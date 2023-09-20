@@ -4,15 +4,13 @@ on:
   push:
     branches:
       - staging
-env:
-  ENV_NAME: "本番"
-
 jobs:
   call-release-pr:
     uses: ./.github/workflows/release-pr.yml
     with:
       from: staging
       to: main
+      env_name: "本番"
       template: .github/git-pr-release/template.erb
 
 
