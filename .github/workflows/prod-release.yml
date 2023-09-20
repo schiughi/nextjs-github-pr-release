@@ -10,7 +10,6 @@ jobs:
     with:
       from: staging
       to: main
-      env_name: "本番"
       template: .github/git-pr-release/template.erb
 
 
