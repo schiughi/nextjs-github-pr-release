@@ -1,5 +1,5 @@
 name: release-pr
- 
+
 on:
   workflow_dispatch:
   push:
@@ -7,20 +7,19 @@ on:
       - staging
 
 jobs:
-  job:
+  git-pr-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
-          bundler-cache: true
-      - name: Execute git-pr-release
+          ruby-version: "3.1"
+      - run: gem install --no-document git-pr-release
+      - run: git-pr-release --squashed
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: main
           GIT_PR_RELEASE_BRANCH_STAGING: staging
-        run: |
-          gem install git-pr-release -v "1.0.1"
-          git remote set-url origin "https://${GITHUB_ACTOR}:${GIT_PR_RELEASE_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          DEBUG=true git-pr-release
+          TZ: Asia/Tokyo
