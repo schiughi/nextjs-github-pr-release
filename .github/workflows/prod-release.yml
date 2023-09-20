@@ -13,6 +13,6 @@ jobs:
     with:
       from: staging
       to: main
-      template: .github/git-pr-release/shared.erb
+      template: .github/git-pr-release/template.erb
 
 
