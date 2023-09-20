@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-release-pr:
-    uses: ./release-pr.yml
+    uses: ./.github/workflows/release-pr.yml
     with:
       from: staging
       to: main
