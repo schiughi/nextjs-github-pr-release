@@ -12,9 +12,6 @@ on:
       template:
         required: true
         type: string
-    secrets:
-      token:
-        required: true
 
 jobs:
   git-pr-release:
