@@ -1,5 +1,20 @@
 本番リリース <%= Time.now %>
-## リリース内容
+
+## ⚠️Breaking Changes⚠️
+
 <% pull_requests.each do |pr| -%>
-<%= pr.to_checklist_item %>
+ <% pr.labels.each do |label| -%>
+  <% if label.name == 'migrations' %>
+   <%= pr.to_checklist_item %>
+  <% end %>
+ <% end -%>
+<% end -%>
+
+## Features
+<% pull_requests.each do |pr| -%>
+ <% pr.labels.each do |label| -%>
+  <% unless label.name == 'migrations' %>
+   <%= pr.to_checklist_item %>
+  <% end %>
+ <% end -%>
 <% end -%>
