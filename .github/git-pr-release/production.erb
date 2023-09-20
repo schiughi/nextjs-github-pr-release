@@ -1,3 +1,7 @@
 本番リリース <%= Time.now %>
 
+<%- template = File.read('.github/git-pr-release/shared.erb') -%>
 <%= ERB.new(File.read('.github/git-pr-release/shared.erb')).result(binding) %>
+
+## リリース手順
+- Lorem ipsum dolor sit amet,
