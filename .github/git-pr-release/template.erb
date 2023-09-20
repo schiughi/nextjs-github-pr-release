@@ -1,4 +1,4 @@
-<% ENV["GIT_PR_RELEASE_TITLE"] %>リリース <%= Time.now %>
+<%= ENV["GIT_PR_RELEASE_TITLE"] %>リリース <%= Time.now %>
 
 ## ⚠️Breaking Changes
 <% pull_requests.each do |pr| -%>
