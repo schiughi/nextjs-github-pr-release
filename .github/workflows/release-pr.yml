@@ -22,4 +22,5 @@ jobs:
           GIT_PR_RELEASE_BRANCH_STAGING: staging
         run: |
           gem install git-pr-release -v "1.0.1"
+          git remote set-url origin "https://${GITHUB_ACTOR}:${GIT_PR_RELEASE_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           DEBUG=true git-pr-release
