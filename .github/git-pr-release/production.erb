@@ -3,18 +3,14 @@
 ## ⚠️Breaking Changes⚠️
 
 <% pull_requests.each do |pr| -%>
- <% pr.labels.each do |label| -%>
-  <% if label.name == 'migrations' %>
+ <% if pr.labels.any? {|label| label.name == "migrations" } -%>
    <%= pr.to_checklist_item %>
-  <% end %>
  <% end -%>
 <% end -%>
 
 ## Features
 <% pull_requests.each do |pr| -%>
- <% pr.labels.each do |label| -%>
-  <% unless label.name == 'migrations' %>
+ <% unless pr.labels.any? {|label| label.name == "migrations" } -%>
    <%= pr.to_checklist_item %>
-  <% end %>
  <% end -%>
 <% end -%>
