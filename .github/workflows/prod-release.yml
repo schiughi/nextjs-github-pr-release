@@ -12,5 +12,4 @@ jobs:
       from: staging
       to: main
       template: .github/git-pr-release/production.erb
-    secrets:
-      token: ${{ secrets.TOKEN }}
+
