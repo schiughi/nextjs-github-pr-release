@@ -30,5 +30,4 @@ jobs:
           GIT_PR_RELEASE_BRANCH_PRODUCTION: ${{ inputs.to}}
           GIT_PR_RELEASE_BRANCH_STAGING: ${{ inputs.from }}
           GIT_PR_RELEASE_TEMPLATE: ${{ inputs.template }}
-          GIT_PR_RELEASE_TITLE: ${{ inputs.to }}
           TZ: Asia/Tokyo
