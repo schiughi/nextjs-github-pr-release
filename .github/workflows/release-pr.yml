@@ -22,5 +22,5 @@ jobs:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: main
           GIT_PR_RELEASE_BRANCH_STAGING: staging
-          GIT_PR_RELEASE_TEMPLATE: .github/git-pr-release.erb
+          GIT_PR_RELEASE_TEMPLATE: .github/git-pr-release/production.erb
           TZ: Asia/Tokyo
