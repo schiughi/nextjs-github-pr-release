@@ -22,4 +22,4 @@ jobs:
           GIT_PR_RELEASE_BRANCH_STAGING: staging
         run: |
           gem install git-pr-release -v "0.6.0"
-          git-pr-release  --overwrite-description || echo "Done."
+          git-pr-release || echo "Done."
