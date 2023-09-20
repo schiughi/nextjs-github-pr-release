@@ -1,10 +1,20 @@
 name: release-pr
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - staging
+  workflow_call:
+    inputs:
+      from:
+        required: true
+        type: string
+      to:
+        required: true
+        type: string
+      template:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 
 jobs:
   git-pr-release:
@@ -20,7 +30,7 @@ jobs:
       - run: git-pr-release --squashed
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_PR_RELEASE_BRANCH_PRODUCTION: main
-          GIT_PR_RELEASE_BRANCH_STAGING: staging
-          GIT_PR_RELEASE_TEMPLATE: .github/git-pr-release/production.erb
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: ${{ inputs.to}}
+          GIT_PR_RELEASE_BRANCH_STAGING: ${{ inputs.from }}
+          GIT_PR_RELEASE_TEMPLATE: ${{ inputs.template }}
           TZ: Asia/Tokyo

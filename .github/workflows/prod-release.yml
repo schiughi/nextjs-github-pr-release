@@ -1,0 +1,16 @@
+name: production-release-pr
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  call-release-pr:
+    uses: ./release-pr.yml
+    with:
+      from: staging
+      to: main
+      template: .github/git-pr-release/production.erb
+    secrets:
+      token: ${{ secrets.TOKEN }}
