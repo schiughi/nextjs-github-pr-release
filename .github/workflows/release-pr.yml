@@ -15,11 +15,11 @@ jobs:
         with:
           ruby-version: "3.2"
           bundler-cache: true
-      - name: Set up git-pr-release
+      - name: Execute git-pr-release
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: main
           GIT_PR_RELEASE_BRANCH_STAGING: staging
         run: |
           gem install git-pr-release -v "0.6.0"
-          git-pr-release || echo "Done."
+          git-pr-release  --overwrite-description || echo "Done."
