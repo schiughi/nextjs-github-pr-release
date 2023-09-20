@@ -1,16 +1,16 @@
 本番リリース <%= Time.now %>
 
-## ⚠️Breaking Changes⚠️
+## ⚠️Breaking Changes
 
 <% pull_requests.each do |pr| -%>
- <% if pr.labels.any? {|label| label.name == "migrations" } -%>
-   <%= pr.to_checklist_item %>
+ <% if pr.labels.any? { |label| label.name == "migrations" } -%>
+  <%= pr.to_checklist_item %>
  <% end -%>
 <% end -%>
 
-## Features
+## 🚀Features
 <% pull_requests.each do |pr| -%>
- <% unless pr.labels.any? {|label| label.name == "migrations" } -%>
-   <%= pr.to_checklist_item %>
+ <% unless pr.labels.any? { |label| label.name == "migrations" } -%>
+  <%= pr.to_checklist_item %>
  <% end -%>
 <% end -%>
