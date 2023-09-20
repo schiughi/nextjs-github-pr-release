@@ -1,3 +1,5 @@
+<% ENV["ENV_NAME"] %>リリース <%= Time.now %>
+
 ## ⚠️Breaking Changes
 <% pull_requests.each do |pr| -%>
 <% if pr.labels.any? { |label| label.name == "migrations" } -%>

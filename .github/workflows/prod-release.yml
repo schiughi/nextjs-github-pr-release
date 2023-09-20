@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - staging
+env:
+  ENV_NAME: "本番"
 
 jobs:
   call-release-pr:
@@ -11,5 +13,6 @@ jobs:
     with:
       from: staging
       to: main
-      template: .github/git-pr-release/production.erb
+      template: .github/git-pr-release/shared.erb
+
 
