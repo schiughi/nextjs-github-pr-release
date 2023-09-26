@@ -1,4 +1,4 @@
-本番リリース <%= Time.now %>
+<%= ENV["GIT_PR_RELEASE_BRANCH_STAGING"] %><%= "->" %><%= ENV["GIT_PR_RELEASE_BRANCH_PRODUCTION"] %> リリース <%= Time.now %>
 
 ## ⚠️Breaking Changes
 <% pull_requests.each do |pr| -%>

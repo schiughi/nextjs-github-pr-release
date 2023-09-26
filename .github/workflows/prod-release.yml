@@ -4,13 +4,12 @@ on:
   push:
     branches:
       - staging
-
 jobs:
   call-release-pr:
     uses: ./.github/workflows/release-pr.yml
     with:
       from: staging
       to: main
-      template: .github/git-pr-release/production.erb
-    secrets:
-      token: ${{ secrets.TOKEN }}
+      template: .github/git-pr-release/template.erb
+
+
